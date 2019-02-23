@@ -22,12 +22,12 @@ public:
 
 private:
     struct [[eosio::table]] todo {
-        uint64_t    auto_increase;
+        uint64_t    key;
         checksum256 id;
         string      name;
         bool        done;
 
-        uint64_t primary_key() const { return auto_increase; }
+        uint64_t primary_key() const { return key; }
         checksum256 by_todoid() const { return id; }
     };
 

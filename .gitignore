@@ -5,3 +5,7 @@
 *.ipr
 *.ids
 *.orig
+
+##  abi and wasm
+*.abi
+*.wasm
