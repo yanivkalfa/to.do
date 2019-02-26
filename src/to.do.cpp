@@ -51,4 +51,15 @@ void to_do::removetodo( checksum256 id )
     print( "todo delete, ", id);
 }
 
-EOSIO_DISPATCH( to_do, (addtodo)(updatetodo)(removetodo))
+void to_do::truncatetable()
+{
+    todo_list todostable(_self, _self.value);
+    for(auto& item : todostable) {
+        auto iterator = todostable.find(item.key);
+        if( iterator != todostable.end() ) {
+            todostable.erase(iterator);
+        }
+    }
+}
+
+EOSIO_DISPATCH( to_do, (addtodo)(updatetodo)(removetodo)(truncatetable))

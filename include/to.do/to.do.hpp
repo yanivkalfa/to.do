@@ -20,6 +20,9 @@ public:
     [[eosio::action]]
     void removetodo( checksum256 id );
 
+    [[eosio::action]]
+    void truncatetable( );
+
 private:
     struct [[eosio::table]] todo {
         uint64_t    key;
